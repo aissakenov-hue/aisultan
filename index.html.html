@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Моя школа</title>
+<style>
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f3f7ff;
+        color: #1d2a3a;
+    }
+    header {
+        background: linear-gradient(135deg, #174aab, #4d8cff);
+        color: white;
+        padding: 65px 20px;
+        text-align: center;
+    }
+    header h1 { font-size: 50px; margin: 0 0 12px; }
+    header p { font-size: 21px; margin: 0; }
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #123d8d;
+        padding: 15px 10px;
+        text-align: center;
+        box-shadow: 0 3px 10px #0002;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 12px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    nav a:hover { color: #dce9ff; }
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 65px 20px;
+    }
+    .hero {
+        text-align: center;
+        padding-top: 55px;
+    }
+    .hero h2 {
+        font-size: 36px;
+        color: #174aab;
+        margin-bottom: 12px;
+    }
+    .hero p { font-size: 19px; line-height: 1.6; }
+    .buttons { margin-top: 25px; }
+    .btn {
+        display: inline-block;
+        padding: 13px 23px;
+        margin: 6px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        background: #2463d4;
+        font-weight: bold;
+    }
+    .btn:hover { background: #123d8d; }
+    .section-title {
+        text-align: center;
+        color: #174aab;
+        font-size: 34px;
+        margin-bottom: 35px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+    }
+    .card {
+        background: white;
+        padding: 27px;
+        border-radius: 18px;
+        box-shadow: 0 5px 18px #00000016;
+        text-align: center;
+        transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { color: #2463d4; font-size: 23px; }
+    .card p { line-height: 1.6; }
+    .card button {
+        border: 0;
+        background: #2463d4;
+        color: white;
+        padding: 11px 20px;
+        border-radius: 9px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    .card button:hover { background: #123d8d; }
+    .schedule {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 18px #00000016;
+    }
+    .schedule th, .schedule td {
+        padding: 15px;
+        border-bottom: 1px solid #e4e9f2;
+        text-align: center;
+    }
+    .schedule th { background: #2463d4; color: white; }
+    .pyp {
+        background: linear-gradient(135deg, #ffffff, #e9f1ff);
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 5px 18px #00000016;
+        line-height: 1.7;
+    }
+    .news {
+        border-left: 5px solid #2463d4;
+        background: white;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 12px #00000010;
+    }
+    .contacts {
+        text-align: center;
+        background: white;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 5px 18px #00000016;
+    }
+    footer {
+        background: #123d8d;
+        color: white;
+        text-align: center;
+        padding: 30px 15px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #0009;
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .modal-box {
+        background: white;
+        max-width: 500px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 18px;
+        text-align: center;
+    }
+    .modal-box h2 { color: #174aab; }
+    .close {
+        background: #2463d4;
+        color: white;
+        border: 0;
+        padding: 11px 25px;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+    @media (max-width: 650px) {
+        header h1 { font-size: 36px; }
+        nav a { display: inline-block; margin: 6px; }
+        .schedule { font-size: 13px; }
+        .schedule th, .schedule td { padding: 9px 4px; }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏫 Моя школа</h1>
+    <p>Знания • Дружба • Творчество • Успех</p>
+</header>
+
+<nav>
+    <a href="#home">Главная</a>
+    <a href="#about">О школе</a>
+    <a href="#study">Учёба</a>
+    <a href="#schedule">Расписание</a>
+    <a href="#pyp">PYP EXHIBITION</a>
+    <a href="#news">Новости</a>
+    <a href="#contacts">Контакты</a>
+</nav>
+
+<section class="hero" id="home">
+    <h2>Добро пожаловать на сайт школы! 👋</h2>
+    <p>
+        Здесь ученики могут найти полезную информацию об учёбе,
+        подготовке к экзаменам и контрольным, школьных проектах,
+        расписании и важных событиях.
+    </p>
+    <div class="buttons">
+        <a class="btn" href="#study">📚 Учёба</a>
+        <a class="btn" href="#pyp">🎓 PYP EXHIBITION</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">🏫 О нашей школе</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>📖 Знания</h3>
+            <p>Мы изучаем новые предметы, развиваем мышление и учимся применять знания на практике.</p>
+        </div>
+        <div class="card">
+            <h3>🤝 Дружба</h3>
+            <p>Школа помогает находить друзей, работать в команде и поддерживать друг друга.</p>
+        </div>
+        <div class="card">
+            <h3>🎨 Творчество</h3>
+            <p>Проекты, выставки и презентации помогают ученикам раскрывать свои идеи и таланты.</p>
+        </div>
+        <div class="card">
+            <h3>🏆 Достижения</h3>
+            <p>Каждый ученик может ставить цели, участвовать в мероприятиях и добиваться новых результатов.</p>
+        </div>
+    </div>
+</section>
+
+<section id="study">
+    <h2 class="section-title">📚 Помощь в учёбе</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>📚 Экзамены</h3>
+            <p>Готовься заранее, раздели материал на небольшие темы и повторяй его регулярно.</p>
+            <button type="button" onclick="openAdvice('exam')">💡 Совет</button>
+        </div>
+        <div class="card">
+            <h3>📝 Контрольные</h3>
+            <p>Повтори правила и формулы, внимательно прочитай задания и не спеши.</p>
+            <button type="button" onclick="openAdvice('test')">💡 Совет</button>
+        </div>
+        <div class="card">
+            <h3>⏰ Планирование</h3>
+            <p>Составь список дел и оставь время для отдыха. Так учиться будет легче.</p>
+            <button type="button" onclick="openAdvice('plan')">💡 Совет</button>
+        </div>
+    </div>
+</section>
+
+<section id="schedule">
+    <h2 class="section-title">📅 Пример расписания</h2>
+    <table class="schedule">
+        <tr>
+            <th>Урок</th>
+            <th>Понедельник</th>
+            <th>Вторник</th>
+            <th>Среда</th>
+            <th>Четверг</th>
+            <th>Пятница</th>
+        </tr>
+        <tr><td>1</td><td>Математика</td><td>Русский язык</td><td>Английский</td><td>Математика</td><td>Литература</td></tr>
+        <tr><td>2</td><td>Английский</td><td>Математика</td><td>История</td><td>Русский язык</td><td>Математика</td></tr>
+        <tr><td>3</td><td>Физкультура</td><td>Литература</td><td>Математика</td><td>Информатика</td><td>Физкультура</td></tr>
+        <tr><td>4</td><td>История</td><td>Информатика</td><td>Русский язык</td><td>Английский</td><td>Искусство</td></tr>
+        <tr><td>5</td><td>Наука</td><td>Физкультура</td><td>Искусство</td><td>История</td><td>Классный час</td></tr>
+    </table>
+</section>
+
+<section id="pyp">
+    <h2 class="section-title">🎓 PYP EXHIBITION</h2>
+    <div class="pyp">
+        <h3>Что такое PYP EXHIBITION?</h3>
+        <p>
+            PYP EXHIBITION — это большой проект, в котором ученики исследуют
+            интересную тему, задают вопросы, находят информацию и представляют
+            результаты своей работы.
+        </p>
+        <p><strong>Полезный план:</strong></p>
+        <ul>
+            <li>🔎 Выбрать интересную тему.</li>
+            <li>❓ Сформулировать вопросы для исследования.</li>
+            <li>📚 Найти и проверить информацию.</li>
+            <li>📝 Подготовить проект и презентацию.</li>
+            <li>🎤 Потренироваться рассказывать о своей работе.</li>
+        </ul>
+        <button class="btn" type="button" onclick="openAdvice('pyp')">💡 Совет для PYP EXHIBITION</button>
+    </div>
+</section>
+
+<section id="news">
+    <h2 class="section-title">📰 Новости школы</h2>
+    <div class="news">
+        <h3>📌 Подготовка к контрольным</h3>
+        <p>Не откладывайте подготовку на последний день. Повторяйте материал постепенно.</p>
+    </div>
+    <div class="news">
+        <h3>🎓 PYP EXHIBITION</h3>
+        <p>Ученики готовят исследовательские проекты и презентации своих идей.</p>
+    </div>
+    <div class="news">
+        <h3>⚽ Спорт</h3>
+        <p>В школе проходят спортивные занятия и мероприятия.</p>
+    </div>
+</section>
+
+<section id="contacts">
+    <h2 class="section-title">📞 Контакты</h2>
+    <div class="contacts">
+        <p>🏫 Адрес: Астана, улица Туркестан 32/1</p>
+        <p>☎️ Телефон: +7 747 458 47 11</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Моя школа</p>
+    <p>Сделано для школьного проекта 💙</p>
+</footer>
+
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h2 id="modalTitle">💡 Совет</h2>
+        <p id="modalText"></p>
+        <button class="close" type="button" onclick="closeAdvice()">Закрыть</button>
+    </div>
+</div>
+
+<script>
+function openAdvice(type) {
+    var title = document.getElementById("modalTitle");
+    var text = document.getElementById("modalText");
+
+    if (type === "exam") {
+        title.textContent = "📚 Совет для экзамена";
+        text.textContent = "Начни подготовку заранее. Раздели материал на части и повторяй понемногу каждый день.";
+    } else if (type === "test") {
+        title.textContent = "📝 Совет для контрольной";
+        text.textContent = "Внимательно прочитай все задания. Сначала реши то, что знаешь лучше всего, а потом вернись к сложным вопросам.";
+    } else if (type === "plan") {
+        title.textContent = "⏰ Совет по планированию";
+        text.textContent = "Составь список дел, расставь приоритеты и обязательно оставь время на отдых.";
+    } else if (type === "pyp") {
+        title.textContent = "🎓 Совет для PYP EXHIBITION";
+        text.textContent = "Выбери тему, которая тебе действительно интересна. Хорошо изучи информацию и потренируйся рассказывать о своём проекте.";
+    }
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeAdvice() {
+    document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("modal").addEventListener("click", function(event) {
+    if (event.target === this) closeAdvice();
+});
+</script>
+
+</body>
+</html>
